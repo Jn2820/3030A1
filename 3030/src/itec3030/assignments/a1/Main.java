@@ -5,12 +5,14 @@
  */
 package itec3030.assignments.a1;
 
+
 import itec3030.smarthome.standards.Furnace;
 import itec3030.smarthome.standards.NumericMeasurementInstrument;
 import itec3030.smarthome.standards.TemperatureSensor;
 
+
 import itec3030.assignments.a1.sensors.omnitemp.OmniTempSensorXS3;
-//import itec3030.assignments.a1.sensors.thermoset.ThermoSetX19.ThermosetX19;    THIS DOESNT EXISTS??????????????????
+import itec3030.assignments.a1.sensors.thermoset.ThermoSetX19.ThermoSetX19;
 import itec3030.assignments.a1.actuators.saharah.SaharaFurnaceHL42;
 /**
  *
@@ -40,7 +42,7 @@ public class Main {
         TemperatureSensor o3 = new OmniTempSensorXS3(c,"o3");
         TemperatureSensor o4 = new OmniTempSensorXS3(c,"o4");
         Furnace f = new SaharaFurnaceHL42("f");
-        NumericMeasurementInstrument th = new QuickThermostat();
+        NumericMeasurementInstrument th = new ThermoSetX19();
  
         
         livingRoom.install(o1);
@@ -51,16 +53,17 @@ public class Main {
         h.setFurnace(f);
         h.setThermostat(th);
         c.setBuildingModel(h);
-        
+      
         
         // Part 2
         Scenario e = new Scenario(o1,o2,o3,o4);
         e.play();
         
-        /**why doesnt this work what the heck. ThermosetX19 is not even in the library
+        
+     
         // Part 3 - uncomment to execute
-        th = new ThermosetX19();
-        h.setThermostat(th);
+       /**
+       
         e = new Scenario(o1,o2,o3,o4);
         e.play();
         **/
